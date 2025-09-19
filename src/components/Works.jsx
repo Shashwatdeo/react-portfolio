@@ -1,15 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Tilt } from "react-tilt";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = ({
   index,
@@ -20,34 +17,12 @@ const ProjectCard = ({
   source_code_link,
   live_demo_link,
 }) => {
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    const el = cardRef.current;
-
-    // ScrollTrigger for animating project cards with stagger
-    gsap.fromTo(
-      el,
-      {
-        opacity: 0,
-        y: 100, // Start off-screen
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: el,
-          start: "top bottom",  // Trigger when the top of the element hits the bottom of the viewport
-          end: "top center",    // End when the top reaches the center of the viewport
-          scrub: true,          // Smoothly sync scroll and animation
-          markers: false,       // Set to `true` to see debug markers
-        },
-      }
-    );
-  }, []);
-
   return (
-    <div ref={cardRef}>
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      whileHover={{ y: -10, scale: 1.02 }}
+      transition={{ duration: 0.3 }}
+    >
       <Tilt
         options={{
           max: 45,
@@ -117,54 +92,53 @@ const ProjectCard = ({
           ))}
         </div>
       </Tilt>
-    </div>
+    </motion.div>
   );
 };
 
 const Works = () => {
-  useEffect(() => {
-    // Stagger effect for project cards
-    gsap.fromTo(
-      ".project-card", // Select all project cards
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.1, // Stagger delay of 0.3 seconds between each card
-        scrollTrigger: {
-          trigger: ".works-container",
-          start: "top bottom",  // Trigger when the top of the container reaches the bottom
-          end: "top center",
-          scrub: true,
-          markers: false, // Set to true to see debug markers
-        },
-      }
-    );
-  }, []);
-
   return (
     <>
-      <div>
-        <p className={`${styles.sectionSubText}`}>My work</p>
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} `}>My work</p>
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
-      </div>
+      </motion.div>
 
-      <div className="w-full flex">
-        <p className="mt-3 text-secondary text-[14px] sm:text-[16px] lg:text-[17px] max-w-3xl leading-[24px] sm:leading-[28px] lg:leading-[30px]">
-          Following projects showcase my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.
-        </p>
-      </div>
+      <motion.div 
+        className="w-full flex"
+        variants={fadeIn("", "", 0.1, 1)}
+      >
+        <motion.p
+          className="mt-3 text-secondary text-[15px] sm:text-[17px] max-w-3xl leading-[28px] sm:leading-[30px]"
+          variants={fadeIn("", "", 0.1, 1)}
+        >
+          Following projects showcases my skills and experience through
+          real-world examples of my work. Each project is briefly described with
+          links to code repositories and live demos in it. It reflects my
+          ability to solve complex problems, work with different technologies,
+          and manage projects effectively.
+        </motion.p>
+      </motion.div>
 
-      <div className="works-container mt-12 sm:mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+      <motion.div 
+        className="mt-16 sm:mt-20 flex flex-wrap gap-6 sm:gap-7 justify-center"
+        variants={{
+          hidden: {},
+          show: {
+            transition: {
+              staggerChildren: 0.2,
+              delayChildren: 0.3
+            }
+          }
+        }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         {projects.map((project, index) => (
-          <div key={`project-${index}`} className="project-card">
-            <ProjectCard index={index} {...project} />
-          </div>
+          <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };

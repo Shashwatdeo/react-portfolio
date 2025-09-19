@@ -40,33 +40,82 @@ const Hero = () => {
   
   return (
     <section className={`relative w-full h-screen mx-auto` }>
-      <div
+      <motion.div
         className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5` }
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut", staggerChildren: 0.3 }}
       >
-        <div className='flex flex-col justify-center items-center mt-28 md:mt-5 lg:5'>
-          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient' />
-        </div>
+        <motion.div 
+          className='flex flex-col justify-center items-center mt-28 md:mt-5 lg:5'
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <motion.div 
+            className='w-5 h-5 rounded-full bg-[#915EFF]' 
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.5, type: "spring", stiffness: 200 }}
+          />
+          <motion.div 
+            className='w-1 sm:h-80 h-40 violet-gradient' 
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            transition={{ duration: 1, delay: 0.8 }}
+          />
+        </motion.div>
 
-        <div className="mt-28 md:mt-5 lg:5">
-          <h1 className={`${styles.heroHeadText} text-white` }>
-            Hi, I'm <span className='text-[#915EFF]'>Shashwat Deo</span>
-          </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100` }>
+        <motion.div 
+          className="mt-28 md:mt-5 lg:5"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <motion.h1 
+            className={`${styles.heroHeadText} text-white` }
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            Hi, I'm <motion.span 
+              className='text-[#915EFF]'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1 }}
+            >
+              Shashwat Deo
+            </motion.span>
+          </motion.h1>
+          <motion.p 
+            className={`${styles.heroSubText} mt-2 text-white-100` }
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
             I'm into <span className='text-[#915EFF]'>{currentText}</span>
             <span className='animate-pulse'>|</span> <br/>
             and creating amazing web experiences
-          </p>
-        </div>
-      </div>
+          </motion.p>
+        </motion.div>
+      </motion.div>
 
       <ComputersCanvas />
 
       
 
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
+      <motion.div 
+        className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 2 }}
+      >
         <a href='#about'>
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
+          <motion.div 
+            className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <motion.div
               animate={{
                 y: [0, 24, 0],
@@ -78,9 +127,9 @@ const Hero = () => {
               }}
               className='w-3 h-3 rounded-full bg-secondary mb-1'
             />
-          </div>
+          </motion.div>
         </a>
-      </div>
+      </motion.div>
     </section>
   );
 };
