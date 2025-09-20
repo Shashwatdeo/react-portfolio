@@ -162,7 +162,7 @@ const Hero = () => {
             }}
           />
           <img
-            src='/src/assets/profile.jpg'
+            src='/profile.jpg'
             alt='Shashwat Deo'
             className='w-full h-full object-cover relative z-10'
           />
