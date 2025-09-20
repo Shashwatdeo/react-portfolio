@@ -102,6 +102,73 @@ const Hero = () => {
 
       <ComputersCanvas />
 
+      {/* Floating Avatar */}
+      <motion.div
+        className='fixed z-50 bottom-4 right-4 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8'
+        initial={{
+          opacity: 0,
+          scale: 0.8,
+          left: '50%',
+          top: '50%',
+          x: '-50%',
+          y: '-50%',
+          rotate: 180
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          left: 'auto',
+          top: 'auto',
+          right: '1rem',
+          bottom: '1rem',
+          x: 0,
+          y: 0,
+          rotate: 0
+        }}
+        transition={{
+          duration: 1.5,
+          delay: 1.5,
+          type: 'spring',
+          stiffness: 120,
+          damping: 20,
+          scale: { type: 'spring', stiffness: 200 },
+          rotate: { duration: 0.8, delay: 1.5 }
+        }}
+        whileHover={{
+          scale: 1.1,
+          rotate: 3,
+          transition: { duration: 0.2, type: 'spring' }
+        }}
+        style={{ maxWidth: 'calc(100vw - 2rem)', maxHeight: 'calc(100vh - 2rem)' }}
+      >
+        <motion.div
+          className='w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden border-2 border-[#915EFF] shadow-lg cursor-pointer relative'
+          whileHover={{
+            boxShadow: '0 10px 25px rgba(145, 94, 255, 0.4)',
+            borderColor: '#a855f7'
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          {/* Glow effect */}
+          <motion.div
+            className='absolute inset-0 rounded-full bg-gradient-to-r from-[#915EFF]/15 to-[#a855f7]/15'
+            animate={{
+              opacity: [0.2, 0.4, 0.2]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+          />
+          <img
+            src='/src/assets/profile.jpg'
+            alt='Shashwat Deo'
+            className='w-full h-full object-cover relative z-10'
+          />
+        </motion.div>
+      </motion.div>
+
       
 
       <motion.div 
