@@ -32,7 +32,7 @@ const Navbar = () => {
         styles.paddingX
       } w-full flex items-center py-5 fixed top-0 z-20 ${
         scrolled ? "bg-primary" : "bg-transparent"
-      }`}
+      } overflow-visible`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -109,9 +109,9 @@ const Navbar = () => {
           </motion.li>
         </motion.ul>
 
-        <div className='md:hidden flex justify-end items-center'>
+        <div className='md:hidden flex justify-end items-center relative z-50'>
           <motion.div 
-            className='hamburger-menu cursor-pointer p-2 rounded-lg hover:bg-white/10 transition-all duration-300'
+            className='hamburger-menu cursor-pointer p-2 rounded-lg hover:bg-white/10 transition-all duration-300 z-50'
             onClick={() => setToggle(!toggle)}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -149,7 +149,7 @@ const Navbar = () => {
           <AnimatePresence>
             {toggle && (
               <motion.div
-                className="p-3 black-gradient absolute top-14 right-1 w-[180px] max-w-[calc(100vw-16px)] z-10 rounded-xl shadow-2xl border border-white/10"
+                className="p-3 black-gradient fixed top-16 right-4 w-[180px] max-w-[calc(100vw-32px)] z-50 rounded-xl shadow-2xl border border-white/10"
                 initial={{ opacity: 0, scale: 0.8, y: -20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: -20 }}
