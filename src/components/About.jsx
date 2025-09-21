@@ -69,20 +69,21 @@ const About = () => {
         I love contributing to open-source projects and exploring new technologies. Let's work together to bring your ideas to life!
       </motion.p>
 
-      <motion.div 
+      <motion.div
         className="mt-12 sm:mt-16 lg:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10"
         variants={{
-          hidden: {},
+          hidden: { opacity: 0 },
           show: {
+            opacity: 1,
             transition: {
-              staggerChildren: 0.2,
-              delayChildren: 0.3
+              staggerChildren: 0.15,
+              delayChildren: 0.2
             }
           }
         }}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: false, amount: 0.1 }}
       >
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
