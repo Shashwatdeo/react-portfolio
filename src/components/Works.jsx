@@ -36,6 +36,10 @@ const ProjectCard = ({
             src={image}
             alt="project_image"
             className="w-full h-full object-cover rounded-2xl"
+            onError={(e) => {
+              e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYwIiBoZWlnaHQ9IjIzMCIgdmlld0JveD0iMCAwIDM2MCAyMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzNjAiIGhlaWdodD0iMjMwIiBmaWxsPSIjMzMzIi8+CjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSIxOTAiIGZpbGw9IiM0NDQiLz4KPHN2ZyB4PSIxNjAiIHk9IjEwNSIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgNDAgNDAiIGZpbGw9Im5vbmUiPgo8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzY2NiIvPgo8Y2lyY2xlIGN4PSIyMCIgY3k9IjE2IiByPSI2IiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik04IDMyQzggMjYgMTEgMjIgMTYgMjJIMjRDMjkgMjIgMzIgMjYgMzIgMzJWMzRIOFYzMloiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cjx0ZXh0IHg9IjE4MCIgeT0iMTYwIiBmaWxsPSIjOTk5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIG5vdCBmb3VuZDwvdGV4dD4KPC9zdmc+';
+              e.target.alt = 'Project Image Not Found';
+            }}
           />
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">

@@ -11,8 +11,12 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
+}
 
-
+/* Ensure 3D canvas can receive pointer events */
+canvas {
+  pointer-events: auto !important;
+  touch-action: none;
 }
 
 

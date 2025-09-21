@@ -72,7 +72,24 @@ const Navbar = () => {
               whileHover={{ scale: 1.1, color: "#ffffff" }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+              <a 
+                href={`#${nav.id}`} 
+                className="cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setActive(nav.title);
+                  const element = document.getElementById(nav.id);
+                  if (element) {
+                    element.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start',
+                      inline: 'nearest'
+                    });
+                  }
+                }}
+              >
+                {nav.title}
+              </a>
             </motion.li>
           ))}
           <motion.li
@@ -153,6 +170,14 @@ const Navbar = () => {
                       onClick={() => {
                         setToggle(!toggle);
                         setActive(nav.title);
+                        const element = document.getElementById(nav.id);
+                        if (element) {
+                          element.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start',
+                            inline: 'nearest'
+                          });
+                        }
                       }}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -160,7 +185,7 @@ const Navbar = () => {
                       whileHover={{ scale: 1.05, color: "#ffffff" }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <a href={`#${nav.id}`}>{nav.title}</a>
+                      <span>{nav.title}</span>
                     </motion.li>
                   ))}
                   <motion.li 

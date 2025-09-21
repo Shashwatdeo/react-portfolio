@@ -61,6 +61,10 @@ const FeedbackCard = ({ index, testimonial, name, designation, company, image })
             src={image}
             alt={`feedback_by-${name}`}
             className="w-10 h-10 rounded-full object-cover"
+            onError={(e) => {
+              e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMzMzMiLz4KPGNpcmNsZSBjeD0iMjAiIGN5PSIxNiIgcj0iNiIgZmlsbD0iIzY2NiIvPgo8cGF0aCBkPSJNOCAzMkM4IDI2IDExIDIyIDE2IDIySDI0QzI5IDIyIDMyIDI2IDMyIDMyVjM0SDhWMzJaIiBmaWxsPSIjNjY2Ii8+Cjwvc3ZnPg==';
+              e.target.alt = 'Profile Image Not Found';
+            }}
           />
         </div>
       </div>
