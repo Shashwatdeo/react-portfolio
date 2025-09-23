@@ -98,7 +98,7 @@ const Navbar = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <motion.a
-              href="/src/assets/Shashwat_Deo_Resume.pdf"
+              href="/Shashwat_Deo_Resume.pdf"
               download="Shashwat_Deo_Resume.pdf"
               className="bg-[#915EFF] hover:bg-[#7c3aed] text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 ease-out text-[16px]"
               whileHover={{ scale: 1.05 }}
