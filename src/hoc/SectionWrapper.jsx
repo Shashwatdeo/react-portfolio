@@ -24,6 +24,9 @@ const sectionVariants = {
 
 const StarWrapper = (Component, idName) =>
   function HOC() {
+    // Enable visual debugging when URL contains ?debugSections
+    const isDebug = typeof window !== "undefined" && window.location.search.includes("debugSections");
+
     return (
       <motion.section
         variants={sectionVariants}
@@ -31,6 +34,8 @@ const StarWrapper = (Component, idName) =>
         whileInView='show'
         viewport={{ once: true, amount: 0.15 }}
         className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
+        style={isDebug ? { outline: "2px dashed rgba(145,94,255,0.6)", outlineOffset: "6px" } : undefined}
+        data-section={idName}
       >
         <span className='hash-span' id={idName}>
           &nbsp;

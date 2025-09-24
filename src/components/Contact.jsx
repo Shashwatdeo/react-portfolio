@@ -1,13 +1,24 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
+import { EarthCanvas } from "./canvas";
 import { slideIn } from "../utils/motion";
 
 const Contact = () => {
+  console.log('Contact component rendered');
   const formRef = useRef();
+  // Hide moving stars background while contact is visible to avoid visual clutter
+  useEffect(() => {
+    const starsEl = typeof document !== 'undefined' ? document.querySelector('.stars-canvas') : null;
+    const prevDisplay = starsEl ? starsEl.style.display : null;
+    if (starsEl) starsEl.style.display = 'none';
+    return () => {
+      if (starsEl) starsEl.style.display = prevDisplay || '';
+    };
+  }, []);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -125,8 +136,12 @@ const Contact = () => {
 
         <motion.div
           variants={slideIn("right", "tween", 0.2, 1)}
-          className='xl:flex-1 xl:h-auto md:h-[500px] sm:h-[400px] h-[300px] pointer-events-none earth-canvas'
+          className='xl:flex-1 xl:h-auto md:h-[500px] sm:h-[400px] h-[300px] pointer-events-none earth-canvas relative'
         >
+          {/* place EarthCanvas as a decorative background behind the form */}
+          <div className='absolute inset-0 w-full h-full z-[-1] pointer-events-none'>
+            <EarthCanvas />
+          </div>
         </motion.div>
       </div>
     </div>
