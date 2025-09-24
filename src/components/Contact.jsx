@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -10,15 +10,6 @@ import { slideIn } from "../utils/motion";
 const Contact = () => {
   console.log('Contact component rendered');
   const formRef = useRef();
-  // Hide moving stars background while contact is visible to avoid visual clutter
-  useEffect(() => {
-    const starsEl = typeof document !== 'undefined' ? document.querySelector('.stars-canvas') : null;
-    const prevDisplay = starsEl ? starsEl.style.display : null;
-    if (starsEl) starsEl.style.display = 'none';
-    return () => {
-      if (starsEl) starsEl.style.display = prevDisplay || '';
-    };
-  }, []);
   const [form, setForm] = useState({
     name: "",
     email: "",

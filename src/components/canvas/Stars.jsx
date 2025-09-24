@@ -18,7 +18,7 @@ const Stars = (props) => {
         <PointMaterial
           transparent
           color='#f272c8'
-          size={0.002}
+          size={0.008}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -29,8 +29,9 @@ const Stars = (props) => {
 
 const StarsCanvas = () => {
   return (
-    <div className='w-full h-auto absolute inset-0 z-[-1] pointer-events-none stars-canvas'>
-      <Canvas camera={{ position: [0, 0, 1] }}>
+    // ensure the canvas fills the section height so stars are visible
+    <div className='w-full h-full absolute inset-0 z-[-1] pointer-events-none stars-canvas'>
+      <Canvas camera={{ position: [0, 0, 1], fov: 75 }}>
         <Suspense fallback={null}>
           <Stars />
         </Suspense>

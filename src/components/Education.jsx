@@ -54,7 +54,7 @@ const EducationCard = ({ education, index }) => {
       <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:mr-auto lg:pr-8' : 'lg:ml-auto lg:pl-8'}`}>
         <div className="bg-tertiary p-4 sm:p-5 lg:p-6 rounded-2xl shadow-card border border-primary/20">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
-            <span className="text-primary text-[12px] sm:text-[14px] font-medium">{education.period}</span>
+            <span className="text-white text-[12px] sm:text-[14px] font-medium">{education.period}</span>
             <span className={`text-[11px] sm:text-[12px] px-2 sm:px-3 py-1 rounded-full w-fit ${
               education.status === 'Ongoing' 
                 ? 'bg-green-500/20 text-green-400' 
@@ -74,7 +74,7 @@ const EducationCard = ({ education, index }) => {
           
           {education.grade && (
             <div className="mt-3">
-              <span className="text-primary text-[12px] sm:text-[13px] lg:text-[14px] font-medium">Grade: {education.grade}</span>
+              <span className="text-white text-[12px] sm:text-[13px] lg:text-[14px] font-medium">Grade: {education.grade}</span>
             </div>
           )}
         </div>
