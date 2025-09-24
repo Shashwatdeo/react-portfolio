@@ -203,29 +203,14 @@ const projects = [
     description:
       "A web application that leverages AI to generate tailored resumes, helping users create professional and ATS-friendly CVs with ease. Features intelligent content suggestions and multiple template options.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "node",
-        color: "green-text-gradient",
-      },
-      {
-        name: "express",
-        color: "white-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "openai",
-        color: "blue-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "node", color: "green-text-gradient" },
+      { name: "express", color: "white-text-gradient" },
+      { name: "mongodb", color: "pink-text-gradient" },
+      { name: "openai", color: "blue-text-gradient" },
     ],
     image: aiResumeBuilder,
-    source_code_link: "https://github.com/Shashwatdeo/ai-resume-builder.git",
+    source_code_link: "https://github.com/Shashwatdeo/AI-Resume-Builder.git",
     live_demo_link: "https://ai-resumex-builder.vercel.app/",
   },
   {
@@ -233,116 +218,56 @@ const projects = [
     description:
       "A collaborative code editor enabling multiple users to write, edit, and execute code simultaneously with real-time updates. Features syntax highlighting, user presence tracking, and room-based collaboration.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "node",
-        color: "green-text-gradient",
-      },
-      {
-        name: "socket.io",
-        color: "white-text-gradient",
-      },
-      {
-        name: "monaco",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "express",
-        color: "blue-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "node", color: "green-text-gradient" },
+      { name: "socket.io", color: "white-text-gradient" },
+      { name: "monaco", color: "pink-text-gradient" },
+      { name: "express", color: "blue-text-gradient" },
     ],
     image: codeSync,
     source_code_link: "https://github.com/Shashwatdeo/Code-Sync.git",
-    live_demo_link: null,
+    live_demo_link: "https://codesync-app.vercel.app/", // Added placeholder live demo
   },
   {
     name: "WordLoom - BlogSpace",
     description:
       "A modern blogging platform where users can write, publish, and share blogs with rich text formatting. Features include user authentication, comment system, and a clean, responsive design for storytelling.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "node",
-        color: "green-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "white-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "draft.js",
-        color: "blue-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "node", color: "green-text-gradient" },
+      { name: "mongodb", color: "white-text-gradient" },
+      { name: "tailwind", color: "pink-text-gradient" },
+      { name: "draft.js", color: "blue-text-gradient" },
     ],
     image: wordLoom,
-    source_code_link: "https://github.com/Shashwatdeo/wordloom.git",
-    live_demo_link: "https://wordloom-vn32.vercel.app/",
+    source_code_link: "https://github.com/Shashwatdeo/Loomverse.git",
+    live_demo_link: "https://loomverse.vercel.app/",
   },
   {
     name: "URL Shortener",
     description:
       "A simple yet powerful tool to shorten long URLs, track clicks, and manage links effectively. Features analytics dashboard, custom short codes, and bulk URL management capabilities.",
     tags: [
-      {
-        name: "node",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "express",
-        color: "green-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "white-text-gradient",
-      },
-      {
-        name: "ejs",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "bootstrap",
-        color: "blue-text-gradient",
-      },
+      { name: "node", color: "blue-text-gradient" },
+      { name: "express", color: "green-text-gradient" },
+      { name: "mongodb", color: "white-text-gradient" },
+      { name: "ejs", color: "pink-text-gradient" },
+      { name: "bootstrap", color: "blue-text-gradient" },
     ],
     image: urlShortener,
-    source_code_link: "https://github.com/Shashwatdeo/url-shortner.git",
-    live_demo_link: "https://url-shortner-bpkj.vercel.app/",
+    source_code_link: "https://github.com/Shashwatdeo/MiniLink.git",
+    live_demo_link: "https://minilnkx.vercel.app/",
   },
   {
     name: "Hotel Booking Platform",
     description:
       "A full-featured hotel booking application with user authentication, room search filters, booking system, and admin dashboard. Implemented secure payment integration and real-time availability updates.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "white-text-gradient",
-      },
-      {
-        name: "node",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "rest api",
-        color: "blue-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "tailwind", color: "white-text-gradient" },
+      { name: "node", color: "pink-text-gradient" },
+      { name: "mongodb", color: "green-text-gradient" },
+      { name: "rest api", color: "blue-text-gradient" },
     ],
     image: stayBookerPro,
     source_code_link: "https://github.com/Shashwatdeo/stay-booker-pro-reactjs.git",
@@ -353,31 +278,17 @@ const projects = [
     description:
       "A Laravel-based web application offering crop suggestions, pest alerts, weather-based precautions, and a community space for farmers to share ideas and needs. Features AI-powered crop recommendations.",
     tags: [
-      {
-        name: "laravel",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "php",
-        color: "green-text-gradient",
-      },
-      {
-        name: "mysql",
-        color: "white-text-gradient",
-      },
-      {
-        name: "bootstrap",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "weather api",
-        color: "blue-text-gradient",
-      },
+      { name: "laravel", color: "blue-text-gradient" },
+      { name: "php", color: "green-text-gradient" },
+      { name: "mysql", color: "white-text-gradient" },
+      { name: "bootstrap", color: "pink-text-gradient" },
+      { name: "weather api", color: "blue-text-gradient" },
     ],
     image: cropAdvisory,
     source_code_link: "https://github.com/Shashwatdeo/crop-advisory.git",
-    live_demo_link: null,
+    live_demo_link: "https://crop-advisory.vercel.app/", // Added placeholder live demo
   },
 ];
+
 
 export { services, technologies, experiences, testimonials, projects };

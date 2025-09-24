@@ -71,7 +71,7 @@ const CertificationCard = ({ certification, index }) => {
                 href={certification.verifyLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-primary/10 hover:bg-primary/20 text-primary text-[14px] font-medium py-2 px-4 rounded-lg text-center transition-all duration-300"
+                className="flex-1 bg-primary/10 hover:bg-primary/20 text-primary text-[14px] font-medium py-2 px-4 rounded-lg text-center transition-all duration-300 cursor-pointer"
               >
                 Verify
               </a>
@@ -81,7 +81,7 @@ const CertificationCard = ({ certification, index }) => {
                 href={certification.viewLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-secondary/10 hover:bg-secondary/20 text-secondary text-[14px] font-medium py-2 px-4 rounded-lg text-center transition-all duration-300"
+                className="flex-1 bg-secondary/10 hover:bg-secondary/20 text-secondary text-[14px] font-medium py-2 px-4 rounded-lg text-center transition-all duration-300 cursor-pointer"
               >
                 View
               </a>

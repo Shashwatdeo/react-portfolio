@@ -8,6 +8,15 @@ const Hero = () => {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  // track whether the intro overlay should still capture pointer events
+  const [overlayActive, setOverlayActive] = useState(true);
+
+  // Fallback: ensure the overlay stops blocking input after the expected animation time
+  // (delay 2s + duration 1s = 3s). Use a slightly larger timeout to be safe.
+  useEffect(() => {
+    const timer = setTimeout(() => setOverlayActive(false), 3500);
+    return () => clearTimeout(timer);
+  }, []);
   
   const texts = [
     "Full Stack Development",
@@ -46,6 +55,10 @@ const Hero = () => {
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{ duration: 1, delay: 2, ease: 'easeInOut' }}
+        // while the overlay animation hasn't completed it must block input;
+        // once animation completes stop intercepting pointer events
+        onAnimationComplete={() => setOverlayActive(false)}
+        style={{ pointerEvents: overlayActive ? 'auto' : 'none' }}
       />
       <motion.div
         className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5` }
